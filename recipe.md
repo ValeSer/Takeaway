@@ -1,14 +1,79 @@
 # Takeaway
 
 1. Describe the Problem
-Typically you will be given a short statement that does this called a user story. In industry, you may also need to ask further questions to clarify aspects of the problem.
+As a customer
+So that I can check if I want to order something
+I would like to see a list of dishes with prices.
+
+As a customer
+So that I can order the meal I want
+I would like to be able to select some number of several available dishes.
+
+As a customer
+So that I can verify that my order is correct
+I would like to see an itemised receipt with a grand total.
+
+As a customer
+So that I am reassured that my order will be delivered on time
+I would like to receive a text such as "Thank you! Your order was placed and will be delivered before 18:52" after I have ordered.
 
 2. Design the Class System
-Design the interfaces of each of your classes and how they will work together to achieve the job of the program. You can use diagrams to visualise the relationships between classes.
+```ruby
+class Dish
+  def initialize(price)
+    * price is a float number
+  end
 
-Consider pulling out the key verbs and nouns in the problem description to help you figure out which classes and methods to have.
+  def price
+    * returns price
+  end
 
-Steps 3, 4, and 5 then operate as a cycle.
+  def is_available?
+   * returns true of false
+  end
+
+
+
+end
+
+
+class Menu
+  def initialize(dishes)
+    * dishes is list with several istances of Dish
+  end
+
+  def dishes
+    * returns a list of dishes
+  end
+
+end
+
+class Order 
+  def initialize 
+  end
+
+  def add(dish)
+    * dish is an istance of Dish
+  end
+
+  def receipt
+   * returns list of added dishes and grand total
+  end
+
+private
+  def total
+  * returns the grand total
+  end
+
+end
+
+
+
+```
+
+
+
+
 
 3. Create Examples as Integration Tests
 Create examples of the classes being used together in different situations and combinations that reflect the ways in which the system will be used.
