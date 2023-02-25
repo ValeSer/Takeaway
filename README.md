@@ -14,7 +14,7 @@
 > So that I can verify that my order is correct
 > I would like to see an itemised receipt with a grand total.
 
-### Use the twilio-ruby gem to implement this next one. You will need to use doubles too.
+##### Use the twilio-ruby gem to implement this next one. You will need to use doubles too.
 
 > As a customer
 > So that I am reassured that my order will be delivered on time
