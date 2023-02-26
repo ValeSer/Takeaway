@@ -17,7 +17,7 @@ describe Dish do
     expect(dish.is_available?).to eq false
   end
 
-  xit 'returns true if available with default value' do
+  it 'returns true if available with default value' do
     dish = Dish.new('my_name', 5)
     expect(dish.is_available?).to eq true
   end

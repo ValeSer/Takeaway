@@ -14,7 +14,7 @@ class Dish
   end
 
   def is_available?
-    false
+    @availability
   end
 
 end
