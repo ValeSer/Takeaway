@@ -127,26 +127,25 @@ order.receipt #=> [dish1, dish2, dish3, 'Total: 30£']
 4. Create Examples as Unit Tests
 ```ruby
 
-#1a
+>#1a
 dish = Dish.new('my_name', 5)
-dish.price #=> 5
+dish.price #=> 'my_name'
 
-#1b
+>#1b
 dish = Dish.new('my_name', 5)
-dish.name #=> 'my_name'
+dish.name #=> 5
 
-#1a
-dish = Dish.new('my_name', 5)
-dish.is_available? #=> true
-
-#1b
-dish = Dish.new('my_name', 5, true)
-dish.is_available? #=> true
-
-#1c
+>#1c
 dish = Dish.new('my_name', 5, false)
 dish.is_available? #=> false
 
+>#1d
+dish = Dish.new('my_name', 5 )
+dish.is_available? #=> true
+
+>#1e
+dish = Dish.new('my_name', 5, true)
+dish.is_available? #=> true
 
 
 #2a
