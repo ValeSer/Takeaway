@@ -69,17 +69,17 @@ end
 
 ```
 
-3. Create Examples as Integration Tests
-```ruby
+3. Create Examples as Integration Test
 
->#1
+```ruby
+#1
 dishes = []
 dish1 = Dish.new('my_name', 5)
 dishes.push(dish1)
 menu = Menu.new(dishes) 
 menu.dishes = #=> [dish1]
 
->#2
+#2
 dishes = []
 dish1 = Dish.new('my_name', 5)
 dish2 = Dish.new('my_name', 10)
@@ -96,11 +96,7 @@ menu = Menu.new(dishes)
 order = Order.new
 order.add(dish1)#=> fails 'Out of stock'
 
-# As a customer
-# So that I can verify that my order is correct
-# I would like to see an itemised receipt with a grand total.
-
-#5
+#4
 dishes = []
 dish1 = Dish.new('my_name', 5)
 dish2 = Dish.new('my_name', 10)
@@ -113,43 +109,41 @@ order.add(dish2)
 order.add(dish3)
 order.receipt #=> [dish1, dish2, dish3, 'Total: 30£']
 
-
 ```
 
 4. Create Examples as Unit Tests
 ```ruby
 
->#1a
+#1a
 dish = Dish.new('my_name', 5)
 dish.price #=> 'my_name'
 
->#1b
+#1b
 dish = Dish.new('my_name', 5)
 dish.name #=> 5
 
->#1c
+#1c
 dish = Dish.new('my_name', 5, false)
 dish.is_available? #=> false
 
->#1d
+#1d
 dish = Dish.new('my_name', 5 )
 dish.is_available? #=> true
 
->#1e
+#1e
 dish = Dish.new('my_name', 5, true)
 dish.is_available? #=> true
 
-
->#2a
+#2a
 dishes = []
 menu = Menu.new(dishes) 
 menu.dishes #=> []
 
->#3a
+#3a
 order = Order.new
 order.add() #=> fails 'Add a dish'
 
->#3b
+#3b
 order = Order.new
 order.receipt #=> ['Total: 0£']
 
