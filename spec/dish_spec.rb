@@ -12,7 +12,7 @@ describe Dish do
     expect(dish.price).to eq 5
   end
 
-  xit 'returns false if not available' do
+  it 'returns false if not available' do
     dish = Dish.new('my_name', 5, false)
     expect(dish.is_available?).to eq false
   end
