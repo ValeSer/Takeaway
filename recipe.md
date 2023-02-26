@@ -20,9 +20,14 @@ I would like to receive a text such as "Thank you! Your order was placed and wil
 2. Design the Class System
 ```ruby
 class Dish
-  def initialize(price, availability = true)
+  def initialize(name, price, availability = true)
+    * name is a string
     * price is a float number
     * availability is a boolean
+  end
+
+  def name
+    *returns name
   end
 
   def price
@@ -72,16 +77,16 @@ end
 
 #1
 dishes = []
-dish1 = Dish.new(5)
+dish1 = Dish.new('my_name', 5)
 dishes.push(dish1)
 menu = Menu.new(dishes) 
 menu.dishes = #=> [dish1]
 
 #2
 dishes = []
-dish1 = Dish.new(5)
-dish2 = Dish.new(10)
-dish3 = Dish.new(15, false)
+dish1 = Dish.new('my_name', 5)
+dish2 = Dish.new('my_name', 10)
+dish3 = Dish.new('my_name', 15, false)
 dishes.push(dish1, dish2, dish3)
 menu = Menu.new(dishes) 
 menu.dishes = #=> [dish1, dish2, dish3]
@@ -93,21 +98,11 @@ menu.dishes = #=> [dish1, dish2, dish3]
 
 #3
 dishes = []
-dish1 = Dish.new(5)
-dishes.push(dish1, dish2, dish3)
-menu = Menu.new(dishes) 
-order = Order.new
-order.add() #=> fails 'Add a dish'
-
-#4
-dishes = []
-dish1 = Dish.new(5, false)
-dish2 = Dish.new(10)
+dish1 = Dish.new('my_name', 5, false)
 dishes.push(dish1)
 menu = Menu.new(dishes)
 order = Order.new
 order.add(dish1)#=> fails 'Out of stock'
-
 
 # As a customer
 # So that I can verify that my order is correct
@@ -115,22 +110,9 @@ order.add(dish1)#=> fails 'Out of stock'
 
 #5
 dishes = []
-dish1 = Dish.new(5)
-dish2 = Dish.new(10)
-dish3 = Dish.new(15)
-dishes.push(dish1, dish2, dish3)
-menu = Menu.new(dishes) 
-order = Order.new
-order.add(dish1)
-order.add(dish2)
-order.add(dish3)
-order.receipt #=> [dish2, dish3, 'Total: 25£']
-
-#6
-dishes = []
-dish1 = Dish.new(5, false)
-dish2 = Dish.new(10)
-dish3 = Dish.new(15)
+dish1 = Dish.new('my_name', 5)
+dish2 = Dish.new('my_name', 10)
+dish3 = Dish.new('my_name', 15)
 dishes.push(dish1, dish2, dish3)
 menu = Menu.new(dishes) 
 order = Order.new
@@ -139,25 +121,30 @@ order.add(dish2)
 order.add(dish3)
 order.receipt #=> [dish1, dish2, dish3, 'Total: 30£']
 
+
 ```
 
 4. Create Examples as Unit Tests
 ```ruby
 #1a
-dish = Dish.new(5)
+dish = Dish.new('my_name', 5)
 dish.is_available? #=> true
 
 #1b
-dish = Dish.new(5, true)
+dish = Dish.new('my_name', 5, true)
 dish.is_available? #=> true
 
 #1c
-dish = Dish.new(5, false)
+dish = Dish.new('my_name', 5, false)
 dish.is_available? #=> false
 
 #1d
-dish = Dish.new(5)
+dish = Dish.new('my_name', 5)
 dish.price #=> 5
+
+#1e
+dish = Dish.new('my_name', 5)
+dish.name #=> 'my_name'
 
 #2a
 dishes = []
@@ -166,7 +153,11 @@ menu.dishes #=> []
 
 #3a
 order = Order.new
-order.add() #=> 'Add a dish'
+order.add() #=> fails 'Add a dish'
+
+#3b
+order = Order.new
+order.receipt #=> ['Total: 0£']
 
 ```
 5. Implement the Behaviour
