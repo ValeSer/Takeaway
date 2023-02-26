@@ -153,11 +153,11 @@ dishes = []
 menu = Menu.new(dishes) 
 menu.dishes #=> []
 
-#3a
+>#3a
 order = Order.new
 order.add() #=> fails 'Add a dish'
 
-#3b
+>#3b
 order = Order.new
 order.receipt #=> ['Total: 0£']
 
