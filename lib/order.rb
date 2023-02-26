@@ -2,8 +2,9 @@ class Order
   def initialize
   end
 
-  def add
-    fail 'Add a dish' 
+  def add(dish)
+    fail 'Add a dish' if dish == nil
+    fail 'Out of stock' 
   end
 
   def receipt 

@@ -71,9 +71,6 @@ end
 
 3. Create Examples as Integration Tests
 ```ruby
-# As a customer
-# So that I can check if I want to order something
-# I would like to see a list of dishes with prices.
 
 >#1
 dishes = []
@@ -82,7 +79,7 @@ dishes.push(dish1)
 menu = Menu.new(dishes) 
 menu.dishes = #=> [dish1]
 
-#2
+>#2
 dishes = []
 dish1 = Dish.new('my_name', 5)
 dish2 = Dish.new('my_name', 10)
@@ -90,11 +87,6 @@ dish3 = Dish.new('my_name', 15, false)
 dishes.push(dish1, dish2, dish3)
 menu = Menu.new(dishes) 
 menu.dishes = #=> [dish1, dish2, dish3]
-
-
-# As a customer
-# So that I can order the meal I want
-# I would like to be able to select some number of several available dishes.
 
 #3
 dishes = []

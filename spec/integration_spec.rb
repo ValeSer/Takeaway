@@ -18,8 +18,16 @@ describe 'integration' do
     dishes.push(dish1, dish2, dish3)
     menu = Menu.new(dishes) 
     expect(menu.dishes).to eq [dish1, dish2, dish3]
-  
-  
+  end
+
+  it 'fails if dish not available' do
+    dishes = []
+    dish1 = Dish.new('my_name', 5, false)
+    dishes.push(dish1)
+    menu = Menu.new(dishes)
+    order = Order.new
+    expect { order.add(dish1) }.to raise_error 'Out of stock'
+
   end
 
 
