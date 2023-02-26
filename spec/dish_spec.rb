@@ -22,7 +22,7 @@ describe Dish do
     expect(dish.is_available?).to eq true
   end
 
-  xit 'returns true if available with explicit value' do
+  it 'returns true if available with explicit value' do
     dish = Dish.new('my_name', 5, true)
     expect(dish.is_available?).to eq true
   end
