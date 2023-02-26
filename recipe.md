@@ -75,7 +75,7 @@ end
 # So that I can check if I want to order something
 # I would like to see a list of dishes with prices.
 
-#1
+>#1
 dishes = []
 dish1 = Dish.new('my_name', 5)
 dishes.push(dish1)
