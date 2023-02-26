@@ -148,7 +148,7 @@ dish = Dish.new('my_name', 5, true)
 dish.is_available? #=> true
 
 
-#2a
+>#2a
 dishes = []
 menu = Menu.new(dishes) 
 menu.dishes #=> []
