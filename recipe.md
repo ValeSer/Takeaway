@@ -28,14 +28,15 @@ class Dish
     * returns price
   end
 
+  def add(dish)
+    * adds a dish to dishes
+    * returns nothing
+  end
+
   def is_available?
    * returns true of false
   end
-
-
-
 end
-
 
 class Menu
   def initialize(dishes)
@@ -45,7 +46,6 @@ class Menu
   def dishes
     * returns a list of dishes
   end
-
 end
 
 class Order 
@@ -62,10 +62,92 @@ class Order
 
 private
   def total
-  * returns the grand total
+  * returns the grand total as a string 
   end
-
 end
+
+```
+
+3. Create Examples as Integration Tests
+```ruby
+# As a customer
+# So that I can check if I want to order something
+# I would like to see a list of dishes with prices.
+
+#1
+dishes = []
+menu = Menu.new(dishes) 
+menu.dishes = #=> []
+
+#2
+dishes = []
+dish1 = Dish.new(5)
+dishes.push(dish1)
+menu = Menu.new(dishes) 
+menu.dishes = #=> [dish1]
+
+#3
+dishes = []
+dish1 = Dish.new(5)
+dish2 = Dish.new(10)
+dish3 = Dish.new(15)
+dishes.push(dish1, dish2, dish3)
+menu = Menu.new(dishes) 
+menu.dishes = #=> [dish1, dish2, dish3]
+
+# As a customer
+# So that I can order the meal I want
+# I would like to be able to select some number of several available dishes.
+
+#4
+dishes = []
+dish1 = Dish.new(5)
+dish2 = Dish.new(10)
+dish3 = Dish.new(15)
+dishes.push(dish1, dish2, dish3)
+menu = Menu.new(dishes) 
+order = Order.new
+order.add() #=> fails 'Add a dish'
+
+#5
+dishes = []
+order = Order.new
+dish1 = Dish.new(5)
+dish2 = Dish.new(10)
+dishes.push(dish1)
+menu = Menu.new(dishes)
+dish1.is_available?
+order.add(dish1)#=> fails 'Out of stock'
+
+
+#6
+dishes = []
+dish1 = Dish.new(5)
+dish2 = Dish.new(10)
+dish3 = Dish.new(15)
+dishes.push(dish1, dish2, dish3)
+menu = Menu.new(dishes) 
+order = Order.new
+dish1.is_available?
+dish2.is_available?
+dish3.is_available?
+order.add(dish1)
+order.add(dish2)
+order.add(dish3)
+order.receipt #=> [dish1, dish2, dish3, 'Total: 30£']
+
+
+
+
+# As a customer
+# So that I can verify that my order is correct
+# I would like to see an itemised receipt with a grand total.
+
+
+```
+
+4. Create Examples as Unit Tests
+```ruby
 
 
 
@@ -73,19 +155,4 @@ end
 
 
 
-
-
-3. Create Examples as Integration Tests
-Create examples of the classes being used together in different situations and combinations that reflect the ways in which the system will be used.
-
-Encode one of these as a test and move to step 4.
-
-4. Create Examples as Unit Tests
-Create examples, where appropriate, of the behaviour of each relevant class at a more granular level of detail.
-
-Encode one of these as a test and move to step 5.
-
 5. Implement the Behaviour
-For each example you create as a test, implement the behaviour that allows the class to behave according to your example.
-
-Then return to step 3 until you have addressed the problem you were given. You may also need to revise your design, for example if you realise you made a mistake earlier.
