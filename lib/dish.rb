@@ -7,4 +7,9 @@ class Dish
   def name
     @name
   end
+
+  def price
+    @price
+  end
+  
 end

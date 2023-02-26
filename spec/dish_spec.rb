@@ -7,7 +7,7 @@ describe Dish do
     expect(dish.name).to eq 'my_name'
   end
 
-  xit 'returns a price' do
+  it 'returns a price' do
     dish = Dish.new('my_name', 5)
     expect(dish.price).to eq 5
   end
